@@ -31,3 +31,13 @@ python automated processing script.
 
     * Currently, there is a lack of intelligent decision making module that can help automatically play games to get higher score. 
 
+* [pdf]([python-automation/pdf at main · MrZhangKY/python-automation (github.com)](https://github.com/MrZhangKY/python-automation/tree/main/pdf))
+
+  * [pdfMerger.py](https://github.com/MrZhangKY/python-automation/blob/main/pdf/pdfMerger.py): a script that can merge all pdf files to one file in basepath
+
+    ```cmd
+    python pdfMerger.py
+    ```
+
+    
+
