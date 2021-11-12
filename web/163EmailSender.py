@@ -8,19 +8,21 @@
 import sys
 from selenium import webdriver
 import logging
-logging.basicConfig(level=logging.DEBUG, filename='log.txt')
+logging.basicConfig(level=logging.DEBUG)
 logging.disable(logging.DEBUG)
 
 # get input arguments
-logging.info(sys.argv)
+# logging.info(sys.argv)
 addrOfSender, pwdOfSender, addrOfReceiver, contOfEmail = sys.argv[1:]
 
 # open mail address of 163Mail
-options = webdriver.EdgeOptions()
-options.add_argument('--ignore-certificate-errors')
-options.add_argument('--ignore-ssl-errors')
-options.add_experimental_option("excludeSwitches", ['enable-automation', 'enable-logging'])
-browser = webdriver.Edge(options=options)
+'''for the user who finds errors'''
+#options = webdriver.EdgeOptions()
+#options.add_argument('--ignore-certificate-errors')
+#options.add_argument('--ignore-ssl-errors')
+#options.add_experimental_option("excludeSwitches", ['enable-automation', 'enable-logging'])
+#browser = webdriver.Edge(options=options)
+browser = webdriver.Edge()
 browser.get('https://mail.163.com/')
 
 # sign in the email
@@ -35,6 +37,7 @@ loginButton.click()
 
 # write email
 browser.switch_to.default_content()
-write_elem = browser.find_elements_by_id('_mail_component_149_149')
+write_elem = browser.find_element_by_css_selector('.js-component-component ra0 mD0')
 logging.info(write_elem)
+print(f'\033[31m{write_elem}\033[0m')
 write_elem.click()
